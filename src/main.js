@@ -7,6 +7,10 @@ app.use(express.urlencoded({extended: true}))
 app.use(session({ secret : process.env.SESSION_SECRET }));
 const port = process.env.EXPRESS_PORT || 3001;
 const weekdays = process.env.WEEKDAYS.split(',');
+app.get('/', (req, res, next) => {
+    res.write("You can send messages to +14232502134" to start");
+    res.end();
+});
 app.post('/receive-sms', (req, res) => {
     const messageContent = req.body.Body.toLowerCase();
     console.log("\nUSER REPLY:", messageContent, "\n");
